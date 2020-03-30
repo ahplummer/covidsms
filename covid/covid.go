@@ -142,13 +142,15 @@ func ParseCSVForFips(lastDate string, fips int, stream io.ReadCloser, latestFNam
 		}
 	}
 	lastCases := -1
+	lastDeaths := -1
 	var message string
 	if newRecord != nil{
 		lastCases, err = strconv.Atoi(newRecord[4])
+		lastDeaths, err = strconv.Atoi(newRecord[5])
 		if err !=  nil {
 			return "", err
 		} else {
-			message = fmt.Sprintf("%d is the latest casecount for %v county, with date %v", lastCases, county, newDate)
+			message = fmt.Sprintf("%d is the latest casecount, %d deaths for %v county, with date %v", lastCases, lastDeaths, county, newDate)
 		}
 	}
 	return message, nil

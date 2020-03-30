@@ -37,7 +37,7 @@ func TestParseCSVForFips(t *testing.T) {
 2020-01-21,Snohomish,Washington,53061,1,0
 2020-01-22,Snohomish,Washington,53061,1,0
 2020-01-23,Snohomish,Washington,53061,3,0`
-	expectedNewCases := "3 is the latest casecount for Snohomish county, with date 2020-01-23"
+	expectedNewCases := "3 is the latest casecount, 0 deaths for Snohomish county, with date 2020-01-23"
 	lastRetrievedDate := "2020-01-22"
 	fakeBody := ioutil.NopCloser(bytes.NewReader([]byte(testData)))
 	latestFName := "test.txt"
